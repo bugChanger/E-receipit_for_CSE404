@@ -1,2 +1,2 @@
-# E-recipit_for_CSE401
+# E-recipit_for_CSE404
 This is our software engineering project repository
