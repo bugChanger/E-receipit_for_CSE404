@@ -23,3 +23,5 @@ Route::get('/about', function()
 {
     return View('about');
 });
+
+Route::post('/store', 'HomeController@store');

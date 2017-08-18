@@ -2,37 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Illuminate\Http\Request;
 
-use DB;
-
-class HomeController extends Controller
+class test extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('home');
+        //return view ("home");
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
@@ -44,29 +32,17 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
-        //product::create(Request::all());
-        // $user = new product;
-        $p_name =  $request->input("p_name");
-        $p_quan =  $request->input("p_quan");
-        $p_price = $request->input("p_price");
-        
-        //$p_total = $p_quan * $p_price;
-
-        //$p_total = $request->input("p_total");
-        
-        $data = $arrayName = array('p_name' =>$p_name,'p_quan' =>$p_quan, 'p_price' =>$p_price,  'created_at' => date('D-m-y H:m:s'));
-
-        DB::table('products')->insert($data);
-
-        
+        $user = new product;
+        $user ->pname = Input::get("p_name");
+        $user ->pquan = Input::get("p_quan");
+        $user ->pprice = Input::get("p_price");
+        $user ->ptotal = Input::get("total");
+        $user ->save();
 
         return ("data save");
     }
-
-
 
     /**
      * Display the specified resource.

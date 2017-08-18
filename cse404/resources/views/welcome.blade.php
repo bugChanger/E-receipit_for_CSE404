@@ -85,7 +85,7 @@
                 <div class="links">
                     <a href="https://trello.com/b/becfEsn2/group-2">Trello</a>
                     <a href="https://github.com/bugChanger/E-receipit_for_CSE404">GitHub</a>
-                    <a href="http://localhost/cse404/public/about">About us</a>
+                    <a href="http://localhost/cse404/public/about">About</a>
                 </div>
 
                 </br></br>
