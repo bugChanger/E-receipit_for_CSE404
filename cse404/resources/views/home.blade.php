@@ -9,22 +9,32 @@
             </br>
 
 <body>
-        <form action="store" method="post">
+<h1 style="text-align: center;"></h1>
+        <form action="store" method="post" align="center">
             <tr>
             <!-- {{ csrf_field() }} -->
             <td>Product Name: </td><td><input type="text" name="p_name" required></td></tr></br>
             <tr><td>Product Quantity: </td><td><input type="text" name="p_quan" required></td></tr></br>
             <tr><td>Product Price: </td><td><input type="text" name="p_price" required></td></tr></br>
-            <!-- <tr><td>Total:</td><td><input type="text" name="total" required></td></tr>
+            <!-- <tr><td>Total:</td><td><input type="text" name="total" required></td></tr></br></br>
             <tr><td>Contact:</td><td><input type="text" name="cont" required></td></tr>
             <tr><td>Password:</td><td><input type="Password" name="pass1" required></td></tr>
             <tr><td>Confirm Password:</td><td><input type="Password" name="pass2" required></td></tr> -->
 
-<!--             <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+<!--             <script type="text/javascript">
+            function Sum{
+                var quan = parseInt(document.getElementById("p_quan").value);
+                var price = parseInt(document.getElementById("p_price").value);
+                var total = document.getElementById("total");
+                total.value = quan * price;
+            }
+            </script> -->
 
-<?php echo csrf_field();?>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-            <tr><td><input type="submit" name="submit"></td></tr>
+<!-- <?php #echo csrf_field();?>
+ -->
+            <tr><td><input type="submit" name="submit" ></td></tr>
             
         </form>
     </body>
@@ -40,6 +50,7 @@
         </div>
     </div>
 </div>
+
 
 
 @endsection

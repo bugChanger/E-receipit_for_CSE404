@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/getPDF','PDFController@getPDF');
 
 Route::get('/about', function()
 {
@@ -25,3 +26,5 @@ Route::get('/about', function()
 });
 
 Route::post('/store', 'HomeController@store');
+
+Route::get('/send', 'mailController@send');

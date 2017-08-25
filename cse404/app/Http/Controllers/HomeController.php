@@ -9,7 +9,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Http\Request;
 
+use App\Product as Product;
+
 use DB;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -52,18 +55,30 @@ class HomeController extends Controller
         $p_name =  $request->input("p_name");
         $p_quan =  $request->input("p_quan");
         $p_price = $request->input("p_price");
+        //$total = $request->input("total");
         
-        //$p_total = $p_quan * $p_price;
+        $total = $p_quan*$p_price;
 
-        //$p_total = $request->input("p_total");
-        
-        $data = $arrayName = array('p_name' =>$p_name,'p_quan' =>$p_quan, 'p_price' =>$p_price,  'created_at' => date('D-m-y H:m:s'));
+        $data = $arrayName = array('p_name' =>$p_name,'p_quan' =>$p_quan, 'p_price' =>$p_price, 'total' =>$total);
 
         DB::table('products')->insert($data);
 
-        
+        view()->share('data',$data);
 
-        return ("data save");
+        //if($request->has('download')){
+        $pdf=PDF:: loadview('pdf.products');
+        return $pdf->stream('products.pdf'); //download()
+        //}
+
+        //return ('sent');
+
+        //return var_dump($data);
+
+        //$products = products::all();
+
+        // echo $p_name;
+        // echo "<br>";
+        // echo $total;
     }
 
 
@@ -74,9 +89,24 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getData()
     {
-        //
+        // $data['data'] = DB::table('products')->get();
+
+        // if(count($data) > 0)
+        // {
+        //     // $pdf=PDF:: loadview('pdf.products',['data'=>$data]);
+        //     // return $pdf->stream('products.pdf');
+        //     //return view('insertFrom',$data);
+        //     return var_dump($data);
+        // }
+
+        // else
+        // {
+        //     return ('wrong');
+        // }
+
+
     }
 
     /**
