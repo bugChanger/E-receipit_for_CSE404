@@ -13,6 +13,7 @@ use App\Product as Product;
 
 use DB;
 use PDF;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -50,12 +51,9 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        //product::create(Request::all());
-        // $user = new product;
         $p_name =  $request->input("p_name");
         $p_quan =  $request->input("p_quan");
         $p_price = $request->input("p_price");
-        //$total = $request->input("total");
         
         $total = $p_quan*$p_price;
 
@@ -65,20 +63,15 @@ class HomeController extends Controller
 
         view()->share('data',$data);
 
-        //if($request->has('download')){
         $pdf=PDF:: loadview('pdf.products');
-        return $pdf->stream('products.pdf'); //download()
-        //}
 
-        //return ('sent');
+        Mail::send(['text'=>'mail'],['name','alvee'],function($message) use ($pdf){
+            $message->to('dilware.cse@gmail.com')->subject('Your Shopping Receipt');
+            $message->from('dil.alam.cse@ulab.edu.bd','E-Receipt');
+            $message->attachData($pdf->output(),'invoice.pdf');
+        });
 
-        //return var_dump($data);
-
-        //$products = products::all();
-
-        // echo $p_name;
-        // echo "<br>";
-        // echo $total;
+        return $pdf->stream('invoice.pdf'); //download()
     }
 
 

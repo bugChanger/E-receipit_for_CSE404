@@ -10,8 +10,9 @@ class mailController extends Controller
     public function send()
     {
     	Mail::send(['text'=>'mail'],['name','alvee'],function($message){
-    		$message->to('dilware.cse@gmail.com','To hello')->subject('Test Email');
-    		$message->from('dil.alam.cse@ulab.edu.bd','abcd');
+    		$message->to('dilware.cse@gmail.com')->subject('Your Shopping Receipt');
+    		$message->from('dil.alam.cse@ulab.edu.bd','E-Receipt');
     	});
+    	return "mail gecche.";
     }
 }
