@@ -57,7 +57,9 @@ class HomeController extends Controller
         
         $total = $p_quan*$p_price;
 
-        $data = $arrayName = array('p_name' =>$p_name,'p_quan' =>$p_quan, 'p_price' =>$p_price, 'total' =>$total);
+        $email = $request->input("email");
+
+        $data = $arrayName = array('p_name' =>$p_name,'p_quan' =>$p_quan, 'p_price' =>$p_price, 'total' =>$total, 'email' =>$email);
 
         DB::table('products')->insert($data); //database e data save hosse.
 
@@ -65,8 +67,8 @@ class HomeController extends Controller
 
         $pdf=PDF:: loadview('pdf.products'); //pdf generator
 
-        Mail::send(['text'=>'mail'],['name','alvee'],function($message) use ($pdf){
-            $message->to('konikaferdous906@gmail.com')->subject('Your Shopping Receipt');
+        Mail::send(['text'=>'mail'],['name','alvee'],function($message) use ($pdf,$email){
+            $message->to($email)->subject('Your Shopping Receipt');
             $message->from('dil.alam.cse@ulab.edu.bd','E-Receipt');
             $message->attachData($pdf->output(),'invoice.pdf');
         });

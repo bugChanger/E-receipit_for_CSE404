@@ -16,8 +16,8 @@
                         <label style="position:relative; width:200px;">Product Name: </label><input type="text" name="p_name" required></br>
                         <label style="position:relative; width:200px;">Product Quantity: </label><input type="text" name="p_quan" required></br>
                         <label style="position:relative; width:200px;">Per Product Price: </label><input type="text" name="p_price" required></br>
-            <!-- <label style="position:relative; width:200px;">E-mail: </label><input type="text" name="email" required></br>
-            <tr><td>Total:</td><td><input type="text" name="total" required></td></tr></br></br> -->
+                        <label style="position:relative; width:200px;">E-mail: </label><input type="text" name="email" required></br>
+                        <!-- <tr><td>Total:</td><td><input type="text" name="total" required></td></tr></br></br> -->
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}"><br/>
             <label ><input style="position:relative; width: 160px;
