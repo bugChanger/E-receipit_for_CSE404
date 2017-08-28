@@ -14,7 +14,7 @@
 
 <body> <!-- style="border: 2px solid #000;" -->
 
-	<center><h1>Meena Bazar</h1></center>
+	<center><h1>Company Name</h1></center>
 	<p style="float: left;">
 		<strong>Payment Method: Cash</strong><br>
 	</p>
@@ -46,7 +46,7 @@
 			<td class="thick-line"></td>
 			<td class="thick-line"></td>
 			<td class="thick-line text-center"><strong>VAT 15%</strong></td>
-			<td class="thick-line text-right" style="text-align: center;"></td>
+			<td class="thick-line text-right" style="text-align: center;">0</td>
 		</tr>
 
 		<tr>

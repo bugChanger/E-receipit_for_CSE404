@@ -13,18 +13,18 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+}); //1st page
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/getPDF','PDFController@getPDF');
+Route::get('/home', 'HomeController@index')->name('home'); //dashboard dekha jai
+// Route::get('/getPDF','PDFController@getPDF');
 
 Route::get('/about', function()
 {
     return View('about');
 });
 
-Route::post('/store', 'HomeController@store');
+Route::post('/store', 'HomeController@store'); //db te send kori data thn pdf genarator hoi thn email kori.
 
-Route::get('/send', 'mailController@send');
+// Route::get('/send', 'mailController@send');

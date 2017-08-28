@@ -59,14 +59,14 @@ class HomeController extends Controller
 
         $data = $arrayName = array('p_name' =>$p_name,'p_quan' =>$p_quan, 'p_price' =>$p_price, 'total' =>$total);
 
-        DB::table('products')->insert($data);
+        DB::table('products')->insert($data); //database e data save hosse.
 
         view()->share('data',$data);
 
-        $pdf=PDF:: loadview('pdf.products');
+        $pdf=PDF:: loadview('pdf.products'); //pdf generator
 
         Mail::send(['text'=>'mail'],['name','alvee'],function($message) use ($pdf){
-            $message->to('dilware.cse@gmail.com')->subject('Your Shopping Receipt');
+            $message->to('konikaferdous906@gmail.com')->subject('Your Shopping Receipt');
             $message->from('dil.alam.cse@ulab.edu.bd','E-Receipt');
             $message->attachData($pdf->output(),'invoice.pdf');
         });

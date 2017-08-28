@@ -85,12 +85,12 @@
                 <div class="links">
                     <a href="https://trello.com/b/becfEsn2/group-2">Trello</a>
                     <a href="https://github.com/bugChanger/E-receipit_for_CSE404">GitHub</a>
-                    <a href="http://localhost/cse404/public/about">About</a>
+                    <a href="{{ url('/about') }}">About</a>
                 </div>
 
                 </br></br>
 
-                <div id="copyright text-center">© Copyright 2017 Dil Ware Alam</div>
+                <div id="copyright text-center">© Copyright 2017 Phoenix</div>
 
             </div>
         </div>
